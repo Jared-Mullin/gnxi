@@ -97,6 +97,7 @@ func main() {
 	switch {
 	case *subscriptionPoll && *subscriptionOnce:
 		flag.Usage()
+		log.Exitf("Only one of -once and -poll can be set")
 	case *subscriptionOnce:
 		subscriptionListMode = pb.SubscriptionList_ONCE
 	case *subscriptionPoll:
